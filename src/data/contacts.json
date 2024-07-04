@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "Company": "LaLaBoy",
+        "Address": "350 Fifth Avenue Manhattan, New York"
+    },
+    {
+        "id": 1,
+        "Company": "LaLaBoy",
+        "Address": "22 RTRT Street, Los Angeles"
+    },
+    {
+        "id": 2,
+        "Company": "LaLaBoy",
+        "Address": "12/12 XXX Street, Chicago"
+    },
+    {
+        "id": 3,
+        "Company": "LaLaBoy",
+        "Address": "108 Great Wall Street, Boston"
+    }
+]

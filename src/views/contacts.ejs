@@ -163,7 +163,9 @@
             <p class="text-secondary lead">Let´s start a project together!</p>
             <h3>--- Hello World! ---</h3>
             <% contacts.map((contact) => { %>
-              <h4><%=contact.Company%></h4>
+              <h4>
+                <a href="/contacts/<%=contact.id%>"><%=contact.Company%></a>
+              </h4>
               <p><%=contact.Address%></p>
             <%})%>
       </div>

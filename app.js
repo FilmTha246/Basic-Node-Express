@@ -12,13 +12,8 @@ import { fileURLToPath } from 'url';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-
-// การส่งข้อมูลภายในเว็บแอปพลิเคชันขั้นสูง
-// const contacts = require("./data/contacts.json");
-import contacts from './data/contacts.json' assert { type: 'json' };
-
-// สร้างตัวแปร contactRouter
-const contactRouter = express.Router();
+import contactsRouter from './src/router/contactsRouter.js';
+// const contactsRouter = require("./src/router/contactsRouter");
 
 app.use(morgan('combined'));
 
@@ -28,18 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
-// การ Navigate ระหว่างเว็บ และ สร้าง Router
-contactRouter.route("/").get((req, res) => {
-    res.render("contacts",
-        contacts,
-    );
-})
-
-contactRouter.route("/1").get((req, res) => {
-    res.send("Hi! I'm John");
-})
-
-app.use("/contactus", contactRouter)
+app.use("/contacts", contactsRouter)
 
 // จัดการกับ request ที่เข้ามา
 app.get("/", (req,res) => {
