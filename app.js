@@ -16,7 +16,7 @@ app.use(morgan('combined'));
 // จัดการกับ request ที่เข้ามา
 app.get("/", (req,res) => {
     // คำสั่ง
-    res.send("Hello borntoDev Co., Ltd.");
+    res.send("Hello Node-Express");
 })
 
 // รอฟังที่ port ของเรา
