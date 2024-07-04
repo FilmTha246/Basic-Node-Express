@@ -7,11 +7,16 @@ import createDebug from 'debug'
 const debug = createDebug('app')
 // เรียกใช้งาน morgan
 import morgan from 'morgan';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = 3000;
 
 app.use(morgan('combined'));
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // จัดการกับ request ที่เข้ามา
 app.get("/", (req,res) => {
