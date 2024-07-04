@@ -11,21 +11,24 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 4000;
 
 app.use(morgan('combined'));
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.set("views", "./src/views");
+app.set("view engine", "ejs");
+
 // จัดการกับ request ที่เข้ามา
 app.get("/", (req,res) => {
     // คำสั่ง
-    res.send("Hello Node-Express");
+    res.render('index',{username: 'Filmfimi', customers: ["Kitti", "Kittikorn111", "Kitty"]});
 })
 
 // รอฟังที่ port ของเรา
-app.listen(port, () => {
+app.listen(PORT, () => {
     // คำสั่ง
-    debug("Listening on port " + chalk.green(port));
+    debug("Listening on port " + chalk.green(PORT));
 })
